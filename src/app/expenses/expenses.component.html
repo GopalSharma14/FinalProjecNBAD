@@ -1,0 +1,63 @@
+<link
+  href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <h2>My Personal Budget</h2>
+      <button
+        [routerLink]="['/add-expenses']"
+        class="btn btn-dark btn-expenses"
+      >
+        Add expenses
+      </button>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Category</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of expensesArray; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              {{ e.title }}
+            </td>
+            <td>{{ e.amount }}</td>
+            <td>{{ e.category }}</td>
+            <td>{{ e.date }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-success btn-update"
+                (click)="updateRow(e._id)"
+              >
+                Update
+              </button>
+              <!-- <button class="btn btn-danger" (onClick)="deleteClicked(e._id)">Delete</button> -->
+              <button
+                type="submit"
+                class="btn btn-danger"
+                (click)="deleteRow(e._id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

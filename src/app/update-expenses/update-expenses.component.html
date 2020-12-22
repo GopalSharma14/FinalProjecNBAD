@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-2">
+      <h2 class="bottom30">Update Expenses</h2>
+      <form class="form-horizontal" [formGroup]="expForm">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="title">Title:</label>
+          <div class="col-sm-10" *ngFor="let e of tempExpense">
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              placeholder="Enter title"
+              formControlName="title"
+              value="{{ e.title }}"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="amt">Amount:</label>
+          <div class="col-sm-10" *ngFor="let e of tempExpense">
+            <input
+              type="number"
+              class="form-control"
+              id="amt"
+              placeholder="Enter amount"
+              formControlName="amount"
+              value="{{ e.amount }}"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="cat">Category:</label>
+          <div class="col-sm-10" *ngFor="let e of tempExpense">
+            <input
+              type="text"
+              class="form-control"
+              id="cat"
+              placeholder="Enter category"
+              formControlName="category"
+              value="{{ e.category }}"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="date">Date:</label>
+          <div class="col-sm-10" *ngFor="let e of tempExpense">
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              placeholder="Enter Date"
+              formControlName="date"
+              value="{{ e.date }}"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-dark">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
